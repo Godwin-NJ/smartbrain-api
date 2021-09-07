@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const Knex = require('knex')
-const PORT = 3000;
+const port = 3000;
 
 const register = require('./controllers/register')
 const signin = require('./controllers/signin');
@@ -33,7 +33,7 @@ app.use(cors())
 
 
 app.get('/',(req,res) => {
-    res.send('database.users');
+  res.send(database.users);
 })
 
 app.post('/signin',(req,res) => {signin.handleSignin(req,res,db,bcrypt)})
@@ -48,6 +48,6 @@ app.post('/imageUrl',(req,res) => {image.handleApiCall(req,res)})
 
 
 
-app.listen(PORT, () =>{
-    console.log("app is running on port 3000")
+app.listen(process.env.PORT || port, () =>{
+    console.log(`app is running on port ${process.env.PORT }`)
 })
