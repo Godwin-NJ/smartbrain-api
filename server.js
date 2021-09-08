@@ -14,8 +14,8 @@ const image = require('./controllers/image');
       client: 'pg',
       connection: {
       host : '127.0.0.1',
-      user : 'postgres',
-      password : 'godwin',
+      user : 'postgresql-transparent-89048',
+      password : '',
       database : 'smartbrain'
     }
   });
